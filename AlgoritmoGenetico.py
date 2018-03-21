@@ -31,6 +31,7 @@ IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 """
+from matplotlib import pyplot
 from random import random
 from Individuo import Individuo
 
@@ -41,6 +42,7 @@ class AlgoritmoGenetico():
         self.populacao = []
         self.geracao = 0
         self.melhor_solucao = 0 #melhor solução = maior nota e no limite
+        self.lista_solucoes = []
         
     def populacao_inicial(self, espacos, valores, limite_espacos):
         for i in range(self.tamanho_populacao):
@@ -77,6 +79,8 @@ class AlgoritmoGenetico():
             self.fitness(individuo)
         
         self.ordenar_populacao()
+        self.melhor_solucao = self.populacao[0]
+        self.lista_solucoes.append(self.melhor_solucao.nota_avaliacao)
         self.visualizar_geracao()
         
         for geracao in range(numero_geracoes):
@@ -104,6 +108,7 @@ class AlgoritmoGenetico():
             self.visualizar_geracao()
                 
             melhor = self.populacao[0]
+            self.lista_solucoes.append(melhor.nota_avaliacao)
             self.melhor_individuo(melhor)
          
         print("\nMelhor Solução -> G: %s Valor: %s Espaço: %s Cromossomo: %s" %

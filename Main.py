@@ -31,9 +31,12 @@ IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 """
-from Individuo import Individuo
+from matplotlib import pyplot
 from Produto import Produto
 from AlgoritmoGenetico import AlgoritmoGenetico
+
+import sys
+sys.path.append('$HOME/anaconda3/lib/python3.6/site-packages/')
 
 if __name__ == '__main__':
     
@@ -76,97 +79,11 @@ if __name__ == '__main__':
     for i in range(len(produtos)):
         if resultado[i] == '1':
             print("Nome: %s R$ %s " % (produtos[i].nome, produtos[i].valor))
-            
-            
-#    algoritmoGenetico.populacao_inicial(espacos, valores, limite)
-#    
-#    for ind in algoritmoGenetico.populacao:
-#        algoritmoGenetico.fitness(ind)
-#        
-#    
-#    algoritmoGenetico.ordenar_populacao()
-#    algoritmoGenetico.melhor_individuo(algoritmoGenetico.populacao[0])
-#    soma = algoritmoGenetico.somar_avaliacoes()
-#    nova_populacao = []
-#    probabilidade_mutacao = 0.01    
-#    
-#    #Construção da Nova Geração
-#    for individuos in range(0, algoritmoGenetico.tamanho_populacao,2):
-#        pai1 = algoritmoGenetico.selecionar_pai(soma)   
-#        pai2 = algoritmoGenetico.selecionar_pai(soma)
-#        
-#        filhos = algoritmoGenetico.crossover(algoritmoGenetico.populacao[pai1],algoritmoGenetico.populacao[pai2])
-#        nova_populacao.append(algoritmoGenetico.mutation(probabilidade_mutacao,filhos[0]))
-#        nova_populacao.append(algoritmoGenetico.mutation(probabilidade_mutacao,filhos[1]))
-#    
-#    algoritmoGenetico.populacao = list(nova_populacao)
-#        
-#    for individuo in algoritmoGenetico.populacao:
-#        algoritmoGenetico.fitness(individuo)
-#    
-#    algoritmoGenetico.ordenar_populacao()
-#    algoritmoGenetico.melhor_individuo(algoritmoGenetico.populacao[0])
-#    soma = algoritmoGenetico.somar_avaliacoes() 
-#    
-#    print("Melhor: %s" % algoritmoGenetico.melhor_solucao.cromossomo, "Valor: %s\n"  % algoritmoGenetico.melhor_solucao.nota_avaliacao)
-#    
-#    print("Soma das Avaliações %s: " % soma)
-#    
-#    print("Melhor solução para o problema: %s \n" % algoritmoGenetico.melhor_solucao.cromossomo,
-#          "Nota = %s\n" % algoritmoGenetico.melhor_solucao.nota_avaliacao)
-    
-#    for i in range(algoritmoGenetico.tamanho_populacao):
-#        print("*** Indivíduo %s ****\n" %i,
-#              "Espaços = %s\n" % str(algoritmoGenetico.populacao[i].espacos),
-#              "Valores = %s\n" % str(algoritmoGenetico.populacao[i].valores),
-#              "Cromossomo = %s\n" % str(algoritmoGenetico.populacao[i].cromossomo),
-#              "Nota = %s\n" % algoritmoGenetico.populacao[i].nota_avaliacao)
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-#    individuo = Individuo(espacos, valores, limite)
-#    print("Espaços = %s" % str(individuo.espacos))
-#    print("Valores = %s" % str(individuo.valores))
-#    print("Cromossomo = %s" % str(individuo.cromossomo))
-#
-#    print("\nComponentes da carga")
-#    for i in range(len(produtos)):
-#        if individuo.cromossomo[i] == '1':
-#            print("\nNome: %s R$ %s " %(produtos[i].nome, produtos[i].valor))
-#    
-#    print("\n")
-#    
-#    algoritmoGenetico = AlgoritmoGenetico()
-#    
-#    
-#    algoritmoGenetico.fitness(individuo)
-#    print("Indivíduo 1\n")
-#    print("Nota = %s" % individuo.nota_avaliacao)
-#    print("Espaço Usado = %s" % individuo.espaco_usado)
-#
-#    individuo2 = Individuo(espacos, valores, limite)
-#    algoritmoGenetico.fitness(individuo2)
-#    print("Indivíduo 2\n")
-#    print("Nota = %s" % individuo2.nota_avaliacao)
-#    print("Espaço Usado = %s" % individuo2.espaco_usado)
-#
-#    algoritmoGenetico.crossover(individuo, individuo2)
-#    
-#    individuo = algoritmoGenetico.mutation(0.05, individuo)
-#    individuo2 = algoritmoGenetico.mutation(0.05, individuo2)
-
+    pyplot.plot(algoritmoGenetico.lista_solucoes)
+    pyplot.title("Acompanhamento dos valores")
+    pyplot.show()
 
 
 
